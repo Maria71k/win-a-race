@@ -1,0 +1,18 @@
+import random
+
+def simulate_race(num_participants, distance):
+    speeds = [random.uniform(5, 10) for _ in range(num_participants)]
+    print("Speeds of participants:", speeds)
+    winner_speed = min(speeds)
+    winner_index = speeds.index(winner_speed)
+    winner_time = distance / winner_speed
+    print("Winner's speed:", winner_speed)
+    print("Winner's time:", winner_time)
+    
+    wins = [1 if speed == winner_speed else 0 for speed in speeds]
+    win_probabilities = [wins.count(1) / num_participants for _ in range(num_participants)]
+    print("Win probabilities:", win_probabilities)
+
+num_participants = 5
+distance = 1000
+simulate_race(num_participants, distance)
